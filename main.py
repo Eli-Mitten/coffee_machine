@@ -24,20 +24,13 @@ def check_resources(_selection_):
 
 
 def give_me_the_money():
-    total = 0
-    money_values = [0.25, 0.10, 0.05, 0.01]
-    # coger el dinero del usuario
-    inserted_money = []
-    for num_of_coins in input("Insert quarters, dimes, nickles, pennies: (separete with space)").split():
-        inserted_money.append(int(num_of_coins))
-
-    # calcular cuanto es en total
-    i = 0
-    for _num_of_coins in inserted_money:
-        total += _num_of_coins * money_values[i]
-        i += 1
-    print(f"Total inserted: $ {total}")
-    return total
+    
+    total = int(input("Who many quarters?: ")) * 0.25
+    total += int(input("Who many dimes?: ")) * 0.10
+    total += int(input("Who many nickel: ")) * 0.05
+    total += int(input("Who many pennies?: ")) * 0.01
+    print(f"Total inserted: $ {round(total, 2)}")
+    return round(total, 2)
 
 
 def is_money_enough(amount, selected_product):
@@ -52,7 +45,7 @@ def is_money_enough(amount, selected_product):
 def save_the_money(_amount, product_price):
     global money
     money += product_price
-    print(f"Return: iserted money {_amount} - product price {product_price} = {_amount - product_price}")
+    print(f"Return: iserted money {_amount} - product price {product_price} = ${round(_amount - product_price)}")
     show_report()
 
 
